@@ -1,8 +1,8 @@
 
 
 
-# Function for problem 1
-def problem1():Compute the Most Popular Start Hour
+# Compute the Most Popular Start Hour
+def problem1():
     # Code for problem 1
     import pandas as pd
 
@@ -23,8 +23,8 @@ popular_hour = df['hour'].mode()[0]
 print('Most Popular Start Hour:', popular_hour)
 
 
-# Function for problem 2
-def problem2():Display a Breakdown of User Types
+# Display a Breakdown of User Types
+def problem2():
     # Code for problem 2
 import pandas as pd
 
@@ -32,8 +32,9 @@ df = pd.read_csv('chicago.csv')
 user_types = df['User Type'].value_counts()
 
 print(user_types)
-# Function for problem 3
-def problem3():Load and Filter the Dataset
+
+# Load and Filter the Dataset
+def problem3():
     # Code for problem 3
 import pandas as pd
 
