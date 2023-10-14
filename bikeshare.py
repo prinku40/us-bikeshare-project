@@ -1,10 +1,11 @@
 
 
 
-# Compute the Most Popular Start Hour
+#Compute the Most Popular Start Hour
+ import pandas as pd
 def problem1():
     # Code for problem 1
-    import pandas as pd
+   
 
 filename = 'chicago.csv'
 
@@ -24,19 +25,24 @@ print('Most Popular Start Hour:', popular_hour)
 
 
 # Display a Breakdown of User Types
+import pandas as pd
 def problem2():
     # Code for problem 2
-import pandas as pd
+
 
 df = pd.read_csv('chicago.csv')
 user_types = df['User Type'].value_counts()
 
 print(user_types)
 
-# Load and Filter the Dataset
+
+
+
+#Load and Filter the Dataset
+import pandas as pd
 def problem3():
     # Code for problem 3
-import pandas as pd
+
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
