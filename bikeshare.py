@@ -94,9 +94,10 @@ def load_data(city, month, day):
     # Convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
-    # Extract month and day of week from Start Time to create new columns
+    # Extract month, day of week, and hour from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
+    df['hour'] = df['Start Time'].dt.hour
 
     # Filter by month if applicable
     if month != 'all':
@@ -134,6 +135,62 @@ def main():
     if city in ['chicago', 'new york city']:
         gender_analysis(df)
         birth_year_analysis(df)
+
+    # Calculate the most common month
+    most_common_month = df['month'].mode()[0]
+    print('Most Common Month:', most_common_month)
+
+    # Calculate the most common day of the week
+    most_common_day = df['day_of_week'].mode()[0]
+    print('Most Common Day of Week:', most_common_day)
+
+    # Calculate the most common hour of the day
+    most_common_hour = df['hour'].mode()[0]
+    print('Most Common Hour of Day:', most_common_hour)
+
+    # Calculate the most common start station
+    most_common_start_station = df['Start Station'].mode()[0]
+    print('Most Common Start Station:', most_common_start_station)
+
+    # Calculate the most common end station
+    most_common_end_station = df['End Station'].mode()[0]
+    print('Most Common End Station:', most_common_end_station)
+
+    # Calculate the most common trip from start to end
+    df['Trip'] = df['Start Station'] + ' to ' + df['End Station']
+    most_common_trip = df['Trip'].mode()[0]
+    print('Most Common Trip:', most_common_trip)
+
+    # Calculate the total travel time
+    total_travel_time = df['Trip Duration'].sum()
+    print('Total Travel Time:', total_travel_time)
+
+    # Calculate the average travel time
+    average_travel_time = df['Trip Duration'].mean()
+    print('Average Travel Time:', average_travel_time)
+
+    # Calculate the counts of each user type
+    user_type_counts = df['User Type'].value_counts()
+    print('User Type Counts:')
+    print(user_type_counts)
+
+    if city in ['chicago', 'new york city']:
+        # Calculate the counts of each gender
+        gender_counts = df['Gender'].value_counts()
+        print('Gender Counts:')
+        print(gender_counts)
+
+        # Calculate the earliest year of birth
+        earliest_birth_year = df['Birth Year'].min()
+        print('Earliest Year of Birth:', earliest_birth_year)
+
+        # Calculate the most recent year of birth
+        most_recent_birth_year = df['Birth Year'].max()
+        print('Most Recent Year of Birth:', most_recent_birth_year)
+
+        # Calculate the most common year of birth
+        most_common_birth_year = df['Birth Year'].mode()[0]
+        print('Most Common Year of Birth:', most_common_birth_year)
 
 # Dictionary to map city names to data file names
 CITY_DATA = {
