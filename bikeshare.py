@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 # Compute the Most Popular Start Hour
@@ -19,7 +18,6 @@ popular_hour = df['hour'].mode()[0]
 print('Most Popular Start Hour:', popular_hour)
 
 # Display a Breakdown of User Types
-df = pd.read_csv('chicago.csv')
 user_types = df['User Type'].value_counts()
 print(user_types)
 
