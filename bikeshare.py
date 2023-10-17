@@ -115,6 +115,15 @@ def load_data(city, month, day):
     
     return df
 
+# Function to display data
+def display_data(df):
+    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
+    start_loc = 0
+    while view_data == 'yes':
+        print(df.iloc[start_loc:start_loc+5])
+        start_loc += 5
+        view_data = input("Do you wish to continue?: ").lower()
+
 # Main function to handle user input and call the appropriate problem function
 def main():
     # Solicit and handle user input
@@ -217,6 +226,9 @@ def main():
         # Calculate the most common year of birth
         most_common_birth_year = df['Birth Year'].mode()[0]
         print('Most Common Year of Birth:', most_common_birth_year)
+
+    # Call the display_data function
+    display_data(df)
 
 # Dictionary to map city names to data file names
 CITY_DATA = {
