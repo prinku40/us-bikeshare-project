@@ -1,7 +1,15 @@
 import pandas as pd
 
-# Function to compute the most popular start hour
 def compute_popular_start_hour(df):
+    """
+    Computes the most popular start hour from the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
@@ -13,8 +21,16 @@ def compute_popular_start_hour(df):
     
     print('Most Popular Start Hour:', popular_hour)
 
-# Function to perform analysis on the end time field
 def end_time_analysis(df):
+    """
+    Performs analysis on the end time field of the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Convert the End Time column to datetime
     df['End Time'] = pd.to_datetime(df['End Time'])
 
@@ -30,8 +46,16 @@ def end_time_analysis(df):
     print('Total Trip Duration:', total_duration)
     print('Average Trip Duration:', average_duration)
 
-# Function to perform analysis on the start station field
 def start_station_analysis(df):
+    """
+    Performs analysis on the start station field of the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Calculate the most popular start stations
     popular_start_stations = df['Start Station'].value_counts().head(5)
 
@@ -44,8 +68,16 @@ def start_station_analysis(df):
     print('Distribution of Trips across Start Stations:')
     print(station_distribution)
 
-# Function to perform analysis on the end station field
 def end_station_analysis(df):
+    """
+    Performs analysis on the end station field of the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Calculate the most popular end stations
     popular_end_stations = df['End Station'].value_counts().head(5)
 
@@ -58,24 +90,48 @@ def end_station_analysis(df):
     print('Distribution of Trips across End Stations:')
     print(station_distribution)
 
-# Function to perform analysis on the user type field
 def user_type_analysis(df):
+    """
+    Performs analysis on the user type field of the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Calculate the number of subscribers and customers
     user_type_counts = df['User Type'].value_counts()
 
     print('User Type Counts:')
     print(user_type_counts)
 
-# Function to perform analysis on the gender field
 def gender_analysis(df):
+    """
+    Performs analysis on the gender field of the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Calculate the distribution of trips by gender
     gender_counts = df['Gender'].value_counts()
 
     print('Gender Counts:')
     print(gender_counts)
 
-# Function to perform analysis on the birth year field
 def birth_year_analysis(df):
+    """
+    Performs analysis on the birth year field of the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     # Calculate statistics based on birth year
     average_age = 2021 - df['Birth Year'].mean()
     oldest_user = 2021 - df['Birth Year'].max()
@@ -85,8 +141,18 @@ def birth_year_analysis(df):
     print('Oldest User:', oldest_user)
     print('Youngest User:', youngest_user)
 
-# Function to load and filter the dataset
 def load_data(city, month, day):
+    """
+    Loads and filters the bikeshare data based on the given city, month, and day.
+
+    Args:
+        city (str): Name of the city.
+        month (str): Name of the month.
+        day (str): Name of the day.
+
+    Returns:
+        pandas.DataFrame: Filtered DataFrame containing bikeshare data.
+    """
     # Load data file into a dataframe
     filename = CITY_DATA[city]
     df = pd.read_csv(filename)
@@ -115,8 +181,16 @@ def load_data(city, month, day):
     
     return df
 
-# Function to display data
 def display_data(df):
+    """
+    Displays individual trip data from the given DataFrame.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing bikeshare data.
+
+    Returns:
+        None
+    """
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
     start_loc = 0
     while view_data == 'yes':
@@ -124,8 +198,16 @@ def display_data(df):
         start_loc += 5
         view_data = input("Do you wish to continue?: ").lower()
 
-# Main function to handle user input and call the appropriate problem function
 def main():
+    """
+    Main function to handle user input and call the appropriate problem function.
+
+    Args:
+        None
+
+    Returns:
+        None
+    """
     # Solicit and handle user input
     while True:
         city = input("Enter the name of the city (Chicago, New York City, Washington): ").lower()  # Convert to lowercase
