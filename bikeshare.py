@@ -102,7 +102,7 @@ def load_data(city, month, day):
     # Filter by month if applicable
     if month != 'all':
         # Use the index of the months list to get the corresponding int
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
+        months = ['january', 'february', 'march', 'april', 'may', 'june', 'july','august','septembr','octoer','november','december']
         month = months.index(month) + 1
     
         # Filter by month to create the new dataframe
@@ -118,9 +118,35 @@ def load_data(city, month, day):
 # Main function to handle user input and call the appropriate problem function
 def main():
     # Solicit and handle user input
-    city = input("Enter the name of the city: ")
-    month = input("Enter the month (January, February, March, April, May, June): ")
-    day = input("Enter the day of the week (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): ")
+    while True:
+        city = input("Enter the name of the city (Chicago, New York City, Washington): ").lower()  # Convert to lowercase
+
+        # Validate user input
+        valid_cities = ['chicago', 'new york city', 'washington']
+        if city in valid_cities:
+            break
+        else:
+            print("Invalid city. Please enter a valid city.")
+
+    while True:
+        month = input("Enter the month (January, February, March, April, May, June): ").lower()  # Convert to lowercase
+
+        # Validate user input
+        valid_months = ['january', 'february', 'march', 'april', 'may', 'june']
+        if month in valid_months or month == 'all':
+            break
+        else:
+            print("Invalid month. Please enter a valid month.")
+
+    while True:
+        day = input("Enter the day of the week (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday): ").lower()  # Convert to lowercase
+
+        # Validate user input
+        valid_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+        if day in valid_days or day == 'all':
+            break
+        else:
+            print("Invalid day. Please enter a valid day.")
 
     # Call the load_data function based on user input
     df = load_data(city, month, day)
