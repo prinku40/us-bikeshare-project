@@ -2,7 +2,7 @@ import pandas as pd
 
 def compute_popular_start_hour(df):
     """
-    Computes the most popular start hour from the given DataFrame.
+    Compute the most popular start hour from the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -23,7 +23,7 @@ def compute_popular_start_hour(df):
 
 def end_time_analysis(df):
     """
-    Performs analysis on the end time field of the given DataFrame.
+    Perform analysis on the end time field of the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -48,7 +48,7 @@ def end_time_analysis(df):
 
 def start_station_analysis(df):
     """
-    Performs analysis on the start station field of the given DataFrame.
+    Perform analysis on the start station field of the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -70,7 +70,7 @@ def start_station_analysis(df):
 
 def end_station_analysis(df):
     """
-    Performs analysis on the end station field of the given DataFrame.
+    Perform analysis on the end station field of the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -92,7 +92,7 @@ def end_station_analysis(df):
 
 def user_type_analysis(df):
     """
-    Performs analysis on the user type field of the given DataFrame.
+    Perform analysis on the user type field of the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -108,7 +108,7 @@ def user_type_analysis(df):
 
 def gender_analysis(df):
     """
-    Performs analysis on the gender field of the given DataFrame.
+    Perform analysis on the gender field of the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -124,7 +124,7 @@ def gender_analysis(df):
 
 def birth_year_analysis(df):
     """
-    Performs analysis on the birth year field of the given DataFrame.
+    Perform analysis on the birth year field of the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
@@ -143,7 +143,7 @@ def birth_year_analysis(df):
 
 def load_data(city, month, day):
     """
-    Loads and filters the bikeshare data based on the given city, month, and day.
+    Load and filter the bikeshare data based on the given city, month, and day.
 
     Args:
         city (str): Name of the city.
@@ -183,7 +183,7 @@ def load_data(city, month, day):
 
 def display_data(df):
     """
-    Displays individual trip data from the given DataFrame.
+    Display individual trip data from the given DataFrame.
 
     Args:
         df (pandas.DataFrame): DataFrame containing bikeshare data.
